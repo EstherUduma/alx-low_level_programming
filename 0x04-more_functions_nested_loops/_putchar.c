@@ -11,11 +11,5 @@
 
 int _putchar(char c)
 {
-	ssize_t bytes_written = write(1, &c, 1);
-
-	if (bytes_written == -1)
-	{
-		return (-1);
-	}
-	return (1);
+	return (write(1, &c, 1));
 }
