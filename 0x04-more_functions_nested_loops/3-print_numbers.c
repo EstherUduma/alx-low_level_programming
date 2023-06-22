@@ -2,8 +2,7 @@
 
 /**
  * print_numbers - print 0-9
- * @a: stores the numbers or characters
- * Return: void
+ * return: void
  */
 
 void print_numbers(void)
