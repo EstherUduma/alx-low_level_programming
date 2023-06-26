@@ -10,8 +10,8 @@
  */
 int main(void)
 {
-	int passwrd[100];
-	int i, sum, a;
+	int pass[100];
+	int i, sum, n;
 
 	sum = 0;	
 
@@ -24,9 +24,9 @@ int main(void)
 		putchar(pass[i] + '0');
 		if ((2772 - sum) - '0' < 78)
 		{
-			a = 2772 - sum - '0';
-			sum += a;
-			putchar(a + '0');
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
 			break;
 		}
 	}
