@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_buffer - this function prints buffer
+ * print_buffer - prints buffer
  * @b: buffer
  * @size: size
  * Return: void
@@ -10,33 +10,33 @@
 
 void print_buffer(char *b, int size)
 {
-	int a, b, c;
+	int k, m, l;
 
-	a = 0;
+	k = 0;
 
 	if (size <= 0)
 	{
 		printf("\n");
 		return;
 	}
-	while (a < size)
+	while (k < size)
 	{
-		b = size - a < 10 ? size - a : 10;
-		printf("%08x: ", a);
-		for (c = 0; c < 10; c++)
+		m = size - k < 10 ? size - k : 10;
+		printf("%08x: ", k);
+		for (l = 0; l < 10; l++)
 		{
-			if (c < b)
-				printf("%02x", *(b + a + c));
+			if (l < m)
+				printf("%02x", *(b + k + l));
 			else
 				printf("  ");
-			if (c % 2)
+			if (l % 2)
 			{
 				printf(" ");
 			}
 		}
-		for (c = 0; c < b; c++)
+		for (l = 0; l < m; l++)
 		{
-			int c = *(b + a + c);
+			int c = *(b + k + l);
 
 			if (c < 32 || c > 132)
 			{
@@ -45,6 +45,6 @@ void print_buffer(char *b, int size)
 			printf("%c", c);
 		}
 		printf("\n");
-		a += 10;
+		k += 10;
 	}
 }
