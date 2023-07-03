@@ -1,32 +1,25 @@
 #include "main.h"
-
 /**
- * _strpbrk - Search a string for any of a set of bytes.
- * @s: string
- * @accept: string to match
- * Return: Pointer to the byte in `s` that matches one of the bytes in `accept`
- * or NULL if no such byte is found.
+ * _strstr - Entry point
+ * @haystack: input
+ * @needle: input
+ * Return: Always 0 (Success)
  */
-
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	int a, b;
-	char *p;
-
-	a = 0;
-	while (s[a] != '\0')
+	for (; *haystack != '\0'; haystack++)
 	{
-		b = 0;
-		while (accept[b] != '\0')
+		char *a = haystack;
+		char *b = needle;
+
+		while (*a == *b && *b != '\0')
 		{
-			if (accept[b] == s[a])
-			{
-				p = &s[a];
-				return (p);
-			}
+			a++;
 			b++;
 		}
-		a++;
+
+		if (*a == '\0')
+			return (haystack);
 	}
 
 	return (0);
