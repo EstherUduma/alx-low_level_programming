@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
-* main - This function prints all possible different combinations of three digits
+* main - This function prints different combinations of 3 digits
 *
 * Return: Always 0 if successful
 *
@@ -18,9 +18,9 @@ int main(void)
 
 	for (a = '0'; a <= '9'; a++)
 	{
-		for (b = a+1; b <= '9'; b++)
+		for (b = a + 1; b <= '9'; b++)
 		{
-			for (c = b+1; c <= '9'; c++)
+			for (c = b + 1; c <= '9'; c++)
 			{
 				putchar(a);
 				putchar(b);
