@@ -1,19 +1,22 @@
 #include <stdio.h>
 
 /**
- * main - Prints lowercase alphabet.
- *
- * Return: Always 0 (Success)
- */
+* main - This function prints the alphabet in lowercase, followed by a new line
+*
+* Return: Always 0 if successful
+*
+* File_name: 2-print_alphabet.c
+*
+* Author: Esther Ann Uduma
+*/
+
 int main(void)
 {
-	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
-	int i;
+	char c;
 
-	for (i = 0; i < 26; i++)
-	{
-		putchar(alp[i]);
-	}
+	for (c = 'a'; c <= 'z'; c++)
+		putchar(c);
 	putchar('\n');
+
 	return (0);
 }
