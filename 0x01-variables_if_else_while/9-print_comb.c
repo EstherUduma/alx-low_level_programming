@@ -1,22 +1,29 @@
 #include <stdio.h>
 
 /**
- * main - prints all possible combinations of single-digit numbers
- * Return: Always 0 (Success)
- */
+* main - This function prints all possible combinations of single-digit numbers
+*
+* Return: Always 0 if successful
+*
+* File_name: 9-print_comb.c
+*
+* Author: Esther Ann Uduma
+*/
+
 int main(void)
 {
-	int n;
+	int a;
 
-	for (n = 48; n < 58; n++)
+	for (a = '0'; a <= '9'; a++)
 	{
-		putchar(n);
-		if (n != 57)
+		putchar(a);
+		if (a != '9')
 		{
 			putchar(',');
 			putchar(' ');
 		}
 	}
 	putchar('\n');
+
 	return (0);
 }

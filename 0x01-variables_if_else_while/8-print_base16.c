@@ -1,22 +1,25 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers between 0 to 9 and letters between a to f.
- *
- * Return: Always 0 (Success)
- */
+* main - This function prints all the numbers of base 16 in lowercase
+*
+* Return: Always 0 if successful
+*
+* File_name: 8-print_base16.c
+*
+* Author: Esther Ann Uduma
+*/
+
 int main(void)
 {
-	int i;
+	char n;
+	char c;
 
-	for (i = 48; i < 58; i++)
-	{
-		putchar(i);
-	}
-	for (i = 97; i < 103; i++)
-	{
-		putchar(i);
-	}
+	for (n = '0'; n <= '9'; n++)
+		putchar(n);
+	for (c = 'a'; c <= 'f'; c++)
+		putchar(c);
 	putchar('\n');
+
 	return (0);
 }

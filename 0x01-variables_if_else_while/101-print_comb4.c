@@ -1,33 +1,39 @@
 #include <stdio.h>
 
 /**
- * main - prints all possible different combinations of three digits
- * Return: Always 0 (Success)
- */
+* main - This function prints all possible different combinations of three digits
+*
+* Return: Always 0 if successful
+*
+* File_name: 101-print_comb4.c
+*
+* Author: Esther Ann Uduma
+*/
+
 int main(void)
 {
-	int n, m, l;
+	int a;
+	int b;
+	int c;
 
-	for (n = 48; n < 58; n++)
+	for (a = '0'; a <= '9'; a++)
 	{
-		for (m = 49; m < 58; m++)
+		for (b = a+1; b <= '9'; b++)
 		{
-			for (l = 50; l < 58; l++)
+			for (c = b+1; c <= '9'; c++)
 			{
-				if (l > m && m > n)
+				putchar(a);
+				putchar(b);
+				putchar(c);
+				if (a != '7' || b != '8' || c != '9')
 				{
-					putchar(n);
-					putchar(m);
-					putchar(l);
-					if (n != 55 || m != 56)
-					{
-						putchar(',');
-						putchar(' ');
-					}
+					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
 	}
 	putchar('\n');
+
 	return (0);
 }
