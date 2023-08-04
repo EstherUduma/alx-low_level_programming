@@ -11,7 +11,7 @@
 *
 * Return: Always result if successful
 *
-* File_name: _putchar.c
+* File_name: 0-strcat.c
 *
 * Author: Esther Ann Uduma
 */
