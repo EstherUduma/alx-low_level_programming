@@ -3,13 +3,13 @@
 /**
 * _strncat - this function concatinates string
 *
-* @dest: destination string
+* @dest: first string
 *
-* @src: source string
+* @src: second string
 *
 * @n: no. of bytes to concatenate
 *
-* Return: Always 1 if successful, and 0 if not
+* Return: dest
 *
 * File_name: 1-strncat.c
 *
@@ -18,4 +18,18 @@
 
 char *_strncat(char *dest, char *src, int n)
 {
+	int i;
+	char *p = dest;
+
+	while (*p != '\0')
+		p++;
+	for (i = 0; i < n && *src != '\0'; i++)
+	{
+		*p = *src;
+		src++;
+		p++;
+	}
+	*p = '\0';
+
+	return (dest);
 }
