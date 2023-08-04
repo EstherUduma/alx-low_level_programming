@@ -2,60 +2,48 @@
 #include <stdlib.h>
 
 /**
-* main - prints the minimum number of coins
+* main - this function prints minimum number coins to change
 *
-* @argc: number of input
+* @argc: number of input array
+* 
+* @argv: string inputed
 *
-* @argv: string
-*
-* Return: Always 0 if successful
+* Return: 0 if sucessful
 *
 * File_name: 100-change.c
 *
 * Author: Esther Ann Uduma
 */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int amount, coins = 0;
+	int coins = 0, cents;
 
-	if (argc == 2)
-	{
-		amount = atoi(argv[1]);
-		if (amount < 0)
-		{
-			printf("%d\n", 0);
-			return (0);
-		}
-		if (amount % 25 >= 0)
-		{
-			coins += amount / 25;
-			amount = amount % 25;
-		}
-		if (amount % 10 >= 0)
-		{
-			coins += amount / 10;
-			amount = amount % 10;
-		}
-		if (amount % 5 >= 0)
-		{
-			coins += amount / 5;
-			amount = amount % 5;
-		}
-		if (amount % 2 >= 0)
-		{
-			coins += amount / 2;
-			amount = amount % 2;
-		}
-		if (amount % 1 >= 0)
-			coins += amount;
-		printf("%d\n", coins);
-
-		return (0);
-	}
-	else
+	if (argc < 2 || argc > 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	else if (argc == 2)
+	{
+		if (atoi(argv[1]) <= 0)
+		{
+			printf("0\n");
+		}
+		else if (atoi(argv[1]) > 0)
+		{
+			cents = atoi(argv[1]);
+			coins = cents / 25;
+			cents = cents % 25;
+			coins = coins + cents / 10;
+			cents = cents % 10;
+			coins = coins + cents / 5;
+			cents = cents % 5;
+			coins = coins + cents / 2;
+			cents = cents % 2;
+			coins = coins + cents / 1;
+			printf("%d\n", coins);
+		}
+	}
+	return (0);
 }
