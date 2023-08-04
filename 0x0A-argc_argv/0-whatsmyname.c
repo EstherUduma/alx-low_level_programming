@@ -16,9 +16,10 @@
 
 int main(int argc, char *argv[])
 {
-	(void)argc;
-	_puts(argv[0]);
-	_putchar('\n');
+	int i;
+
+	for (i = 0; i < argc; i++)
+		printf("%s\n", argv[0]);
 
 	return (0);
 }
