@@ -26,7 +26,11 @@ int main(int argc, char *argv[])
 	}
 	else if (argc == 2)
 	{
-		if (atoi(argv[1]) > 0)
+		if (atoi(argv[1] <= 0)
+		{
+			printf("0\n");
+		}
+		else if (atoi(argv[1]) > 0)
 		{
 			cents = atoi(argv[1]);
 			coins = cents / 25;
@@ -39,10 +43,6 @@ int main(int argc, char *argv[])
 			cents = cents % 2;
 			coins = coins + cents / 1;
 			printf("%d\n", coins);
-		}
-		else if (atoi(argv[1]) <= 0)
-		{
-			printf("0\n");
 		}
 	}
 	return (0);
