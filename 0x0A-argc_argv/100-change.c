@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 			cents = cents % 5;
 			coins = coins + cents / 2;
 			cents = cents % 2;
-			coins = coins + cnts / 1;
+			coins = coins + cents / 1;
 			printf("%d\n", coins);
 		}
 		else if (atoi(argv[1]) <= 0)
