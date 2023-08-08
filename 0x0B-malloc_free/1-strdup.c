@@ -16,30 +16,29 @@
 
 char *_strdup(char *str)
 {
-	int i;
-
-	int j;
+	unsigned int i;
+	unsigned int j;
 
 	char *p;
 
 	if (str == NULL)
-		return (0);
+		return (NULL);
 
-	while (str[i] != '\0')
-		i++;
+	for (i = 0; str[i] != '\0'; i++)
+		;
 
-	p = malloc((i + 1) * sizeof(char));
+	p = (char *)malloc((i + 1) * sizeof(char));
+
 	if (p == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
 	else
 	{
 		for (j = 0; j <= i; j++)
 		{
-			*(p + j) = str[j];
+			p[j] = str[j];
 		}
-		p[j] = '\0';
 	}
 
 	return (p);
