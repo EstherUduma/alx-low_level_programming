@@ -17,22 +17,19 @@
 
 int *array_range(int min, int max)
 {
-	int *p = NULL;
-	int i, size;
+	int *p;
+	int i;
 
 	if (min > max)
 		return (NULL);
 
-	size = max - min + 1;
-	p = malloc(size * sizeof(int));
+	p = malloc(((max - min) + 1) * sizeof(int));
+	if (p == NULL)
+		return (0);
 
-	if (p != NULL)
+	for (i = 0; i < max - min + 1; i++)
 	{
-		for (i = 0; i < size; i++)
-		{
-			p[i] = min + 1;
-		}
+		*(p + i) = min + i;
 	}
-
 	return (p);
 }
