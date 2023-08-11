@@ -1,159 +1,102 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
+
+#define ERR_MSG "Error"
 
 /**
-* check_zero - checks if any number is 0
-*
-* @argv: argument vector
-*
-* Return: nothing
-*
-* File_name: 101-mul.c
-*
-* Author: Esther Ann Uduma
-*/
-
-void check_zero(char *argv[])
+ * is_digit - checks if a string contains a non-digit char
+ * @s: string to be evaluated
+ *
+ * Return: 0 if a non-digit is found, 1 otherwise
+ */
+int is_digit(char *s)
 {
-	int i, n1 = 1, n2 = 2;
+	int i = 0;
 
-	for (i = 0; argv[1][i] != '\0'; i++)
+	while (s[i])
 	{
-		if (argv[1][i] != '0')
-		{
-			n1 = 0;
-			break;
-		}
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+		i++;
 	}
-
-	for (i = 0; argv[2][i] != '\0'; i++)
-	{
-		if (argv[2][i] != '0')
-		{
-			n2 = 0;
-			break;
-		}
-	}
-
-	if (n2 == 1 || n1 == 1)
-	{
-		printf("0\n");
-		exit(0);
-	}
+	return (1);
 }
 
 /**
-* init_array - initializes a new array by setting its memory to 0
-*
-* @a: char array
-*
-* @l: lenght of the char
-*
-* Return: pointer of a char array
-*
-* File_name: 101-mul.c
-*
-* Author: Esther Ann Uduma
-*/
-
-char *init_array(char *a, int l)
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; i < l; i++)
+	while (s[i] != '\0')
 	{
-		a[i] = '0';
+		i++;
 	}
-	a[l] = '\0';
-	return (a);
+	return (i);
 }
 
 /**
-* checknumber - checks the length of a number, checks if its base 10
-*
-* @argv: argument vector
-*
-* @n: array index
-*
-* Return: length of the number
-*
-* File_name: 101-mul.c
-*
-* Author: Esther Ann Uduma
-*/
-
-int checknumber(char *argv[], int n)
+ * errors - handles errors for main
+ */
+void errors(void)
 {
-	int l;
-
-	for (l = 0; argv[n][l] != '\0'; l++)
-	{
-		if (!isdigit(argv[n][l]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-	}
-
-	return (l);
+	printf("Error\n");
+	exit(98);
 }
 
 /**
-* main - Entry point. This multiplies two positive numbers
-*
-* @argv: argument vector
-*
-* @argc: argument count
-*
-* Return: 0
-*
-* File_name: 101-mul.c
-*
-* Author: Esther Ann Uduma
-*/
-
+ * main - multiplies two positive numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: always 0 (Success)
+ */
 int main(int argc, char *argv[])
 {
-	int ln1, ln2, lnout, add, addl, i, j, k, ca;
-	char *nout;
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	if (argc != 3)
-		printf("Error\n"), exit(98);
-	ln1 = checknumber(argv, 1), ln2 = checknumber(argv, 2);
-	check_zero(argv), lnout = ln1 + ln2, nout = malloc(lnout + 1);
-	if (nout == NULL)
-		printf("Error\n"), exit(98);
-	nout = init_array(nout, lnout);
-	k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
-	for (; k >= 0; k--, i--)
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		if (i < 0)
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
 		{
-			if (addl > 0)
-			{
-				add = (nout[k] - '0') + addl;
-				if (add > 9)
-					nout[k - 1] = (add / 10) + '0';
-				nout[k] = (add % 10) + '0';
-			}
-			i = ln1 - 1, j--, addl = 0, ca++, k = lnout - (1 + ca);
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
 		}
-		if (j < 0)
-		{
-			if (nout[0] != '0')
-				break;
-			lnout--;
-			free(nout), nout = malloc(lnout + 1), nout = init_array(nout, lnout);
-			k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
-		}
-		if (j >= 0)
-		{
-			add = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (nout[k] - '0') + addl;
-			addl = add / 10, nout[k] = (add % 10) + '0';
-		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-	printf("%s\n", nout);
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(result);
 	return (0);
 }
+
