@@ -11,6 +11,8 @@
 *
 * @owner: dog's owner
 *
+* Return: new_dog
+*
 * File_name: 4-new_dog.c
 *
 * Author: Esther Ann Uduma
