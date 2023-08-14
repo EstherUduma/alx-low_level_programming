@@ -2,11 +2,18 @@
 #define DOG_H
 
 /**
- * struct dog - dog struct.
- * @name: name of dog
- * @age: age of dog
- * @owner: owner of dog
- */
+* struct dog - dog struct
+*
+* @name: dog's name
+*
+* @age: dog's age
+*
+* @owner: dog's owner
+*
+* File_name: dog.h
+*
+* Author: Esther Ann Uduma
+*/
 
 struct dog
 {
@@ -21,4 +28,4 @@ typedef struct dog dog_t;
 void free_dog(dog_t *d);
 dog_t *new_dog(char *name, float age, char *owner);
 
-#endif /* DOG_H */
+#endif
