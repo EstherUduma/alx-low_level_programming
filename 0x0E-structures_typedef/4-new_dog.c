@@ -3,54 +3,6 @@
 #include <string.h>
 
 /**
-* new_dog - function that creates a new dog
-*
-* @name: dog's name
-*
-* @age: dog's age
-*
-* @owner: dog's owner
-*
-* Return: new_dog
-*
-* File_name: 4-new_dog.c
-*
-* Author: Esther Ann Uduma
-*/
-
-dog_t *new_dog(char *name, float age, char *owner)
-{
-	dog_t *new_dog;
-	int len_owner, len_owner;
-
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
-
-	len_name = _strlen(name);
-	new_dog->name = malloc(sizeof(char) * len_name + 1);
-	if (new_dog->name == NULL)
-	{
-		free(new_dog);
-		return (NULL);
-	}
-	new_dog->name = _strcpy(new_dog->, name);
-	len_owner = _strlen(owner);
-	new_dog->owner = malloc(sizeof(char) * len_owner + 1);
-	if (new_dog->owner == NULL)
-	{
-		free(new_dog->name);
-		free(new_dog);
-		return (NULL);
-	}
-
-	new_dog->owner = _strcpy(new_dog->owner, owner);
-	new_dog->age = age;
-
-	return (new_dog);
-}
-
-/**
 * _strlen - lenght of string
 *
 * @s: pointer
@@ -86,4 +38,53 @@ char *_strcpy(char *dest, char *src)
 
 	dest[a] = '\0';
 	return (dest);
+}
+
+/**
+* new_dog - function that creates a new dog
+*
+* @name: dog's name
+*
+* @age: dog's age
+*
+* @owner: dog's owner
+*
+* Return: new_dog
+*
+* File_name: 4-new_dog.c
+*
+* Author: Esther Ann Uduma
+*/
+
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t *helper;
+
+	if (name == NULL || age < 0 || owner == NULL)
+		return (NULL);
+
+	helper = malloc(sizeof(dog_t));
+	if (helper == NULL)
+		return (NULL);
+
+	helper->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (helper->name == NULL)
+	{
+		free(helper);
+		return (NULL);
+	}
+
+	helper->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (helper->owner == NULL)
+	{
+		free(helper->name);
+		free(helper);
+		return (NULL);
+	}
+
+	helper->name = _strcpy(helper->name, name);
+	helper->age = age;
+	helper->owner = _strcpy(helper->owner, owner);
+
+	return (helper);
 }
