@@ -14,7 +14,7 @@
 * Author: Esther Ann Uduma
 */
 
-op_add(int a, int b)
+int op_add(int a, int b)
 {
 	int c;
 
@@ -84,4 +84,22 @@ int op_div(int a, int b)
 	return (0);
 }
 
+/**
+* op_mod - this function returns the remainder of the division of a by b
+*
+* @a: first integer
+*
+* @b: second integer
+*
+* Return: if successful 0, otherwise 1.
+*/
 
+int op_mod(int a, int b)
+{
+	int c;
+
+	c = a % b;
+	printf("%d\n", c);
+
+	return (0);
+}
