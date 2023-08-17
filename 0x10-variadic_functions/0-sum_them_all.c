@@ -1,16 +1,11 @@
 #include "variadic_functions.h"
 
 /**
-* sum_them_all - function that returns the sum of all its parameters
-*
-* @n: number of values to sum
-*
-* Return: total_sum
-*
-* File_name: 0-sum_them_all.c
-*
-* Author: Esther Ann Uduma
-*/
+ * sum_them_all - function returns the sum of all it's parameters
+ * @n: number of parameters
+ *
+ * Return: 0 if successful. 1 otherwise.
+ */
 
 int sum_them_all(const unsigned int n, ...)
 {
