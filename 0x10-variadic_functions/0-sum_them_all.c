@@ -16,19 +16,19 @@ int sum_them_all(const unsigned int n, ...)
 {
 	unsigned int i;
 	unsigned int total_sum;
-	va_list args;
+	va_list arg;
 
-	va_start(args, n);
+	va_start(arg, n);
 	total_sum = 0;
 	if (n == 0)
 		return (0);
 
 	for (i = 0; i < n; i++)
 	{
-		total_sum = total_sum + va_arg(args, int);
+		total_sum = total_sum + va_arg(arg, int);
 	}
 
-	va_end(args);
+	va_end(arg);
 
 	return (total_sum);
 }
