@@ -19,9 +19,7 @@ int op_add(int a, int b)
 	int c;
 
 	c = a + b;
-	printf("%d\n", c);
-
-	return (0);
+	return (c);
 }
 
 /**
@@ -39,9 +37,7 @@ int op_sub(int a, int b)
 	int c;
 
 	c = a - b;
-	printf("%d\n", c);
-
-	return (0);
+	return (c);
 }
 
 /**
@@ -59,9 +55,7 @@ int op_mul(int a, int b)
 	int c;
 
 	c = a * b;
-	printf("%d\n", c);
-
-	return (0);
+	return (c);
 }
 
 /**
@@ -79,9 +73,7 @@ int op_div(int a, int b)
 	int c;
 
 	c = a / b;
-	printf("%d\n", c);
-
-	return (0);
+	return (c);
 }
 
 /**
@@ -99,7 +91,5 @@ int op_mod(int a, int b)
 	int c;
 
 	c = a % b;
-	printf("%d\n", c);
-
-	return (0);
+	return (c);
 }
