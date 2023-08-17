@@ -1,7 +1,7 @@
 #include "variadic_functions.h"
 
 /**
-* print_name - function that prints a name
+* sum_them_all - function that prints a name
 *
 * @n: the number of values to be summed up
 *
