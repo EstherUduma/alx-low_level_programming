@@ -1,12 +1,14 @@
 #include "main.h"
 
 /**
- * file_from - to open and read file
- * @arg1: pointer to file
- * @ran: pointer to temp buffer
- *
- * Return: pointer to buffer
- */
+* file_from - copies the content of a file to another file
+*
+* @arg1: pointer
+*
+* @ran: pointer
+*
+* Return: pointer to the buffer containing the file's content
+*/
 
 char *file_from(char *arg1, char *ran)
 {
@@ -38,12 +40,14 @@ char *file_from(char *arg1, char *ran)
 }
 
 /**
- * main - copy content of a file to another file
- * @argc: number of arguments
- * @argv: pointer to an array of the arguments
- *
- * Return: 1 if successful, -1 otherwise
- */
+* main - Copy content from one file to another.
+*
+* @argc: Number of arguments
+*
+* @argv: pointer
+*
+* Return: 1 if successful, -1 if not
+*/
 
 int main(int argc, char **argv)
 {
