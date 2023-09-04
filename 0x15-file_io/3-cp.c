@@ -27,13 +27,13 @@ char *file_from(char *arg1, char *ran)
 	}
 	if (r == -1)
 	{
-		dprintf(STDERR_FILENO, " Error: Can't read from file %s\n", arg1);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg1);
 		exit(98);
 	}
 	cf = close(ff);
 	if (cf == -1)
 	{
-		dprintf(STDERR_FILENO, "Error:  Can't close fd %d\n", ff);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff);
 		exit(100);
 	}
 	return (ran);
