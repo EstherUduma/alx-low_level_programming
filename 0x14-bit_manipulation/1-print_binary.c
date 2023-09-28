@@ -8,10 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1;
-	int i;
-
-	w = n;
+	unsigned long int mask = 1, w = n, i = 0;
 
 	if (n == 0)
 	{
