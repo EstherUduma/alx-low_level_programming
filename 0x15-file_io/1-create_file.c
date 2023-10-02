@@ -11,7 +11,6 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	ssize_t written_chars;
-	int count;
 
 	if (filename == NULL)
 		return (-1);
@@ -20,18 +19,15 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (text_content == NULL)
-		text_content = "";
-
-	count = 0;
-	while (text_content[count])
-		count++;
-
-	written_chars = write(fd, text_content, count);
-
-	if (written_chars == -1)
-		return (-1);
-
+	if (text_content != NULL)
+	{
+		written_chars = write(fd, text_content, strlen(text_content));
+		if (written_chars == -1 || (size_t)written_chars != strlen(text_content))
+		{
+			close(fd);
+			return (-1);
+		}
+	}
 	close(fd);
 
 	return (1);
